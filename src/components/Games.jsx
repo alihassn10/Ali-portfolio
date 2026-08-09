@@ -6,6 +6,14 @@ import FadeInSection from "./FadeInSection";
 import ExternalLinks from "./ExternalLinks";
 
 const games = {
+  Ashfall: {
+    desc: "A falling-sand physics puzzle built from scratch on the HTML5 Canvas — no engine, no libraries. Chunked dirty-rect simulation over a 100,000-cell grid, holding 60fps in ~0.8ms per frame.",
+    techStack: "JAVASCRIPT (ES6+), HTML5 CANVAS, CSS3",
+    open: "https://alihassn10.github.io/ashfall/",
+    link: "https://github.com/alihassn10/ashfall",
+    platform: "Browser — desktop & mobile",
+    image: "/assets/games/ashfall.png",
+  },
   "Whispers in the Shadows": {
     desc: "A 3D first-person horror survival game with complex enemy AI and atmospheric environments. Built as my Final Year Project.",
     techStack: "UNITY, C#, BLENDER",
@@ -79,7 +87,10 @@ const Games = () => {
                       <SportsEsportsRoundedIcon sx={{ fontSize: 34 }} />
                     </div>
                   )}
-                  <ExternalLinks openLink={games[key]["open"]} />
+                  <ExternalLinks
+                    githubLink={games[key]["link"]}
+                    openLink={games[key]["open"]}
+                  />
                 </div>
 
                 <a
