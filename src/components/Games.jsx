@@ -22,6 +22,27 @@ const games = {
     platform: "itch.io",
     image: "/assets/games/whispers-in-the-shadows.png",
   },
+  "Car Mechanic Workshop Sim 2026": {
+    desc: "A 3D car mechanic sim: inspect vehicles, repair engines, swap damaged parts, and restore and customize cars across hands-on workshop jobs.",
+    techStack: "UNITY, C#",
+    open: "https://play.google.com/store/apps/details?id=com.sbn.car.mechanic.workshop.sim",
+    platform: "Android",
+    image: "/assets/games/car-mechanic-workshop.webp",
+  },
+  "No More Zombies: Hell Room": {
+    desc: "A zombie survival shooter with wave-based undead hordes, escalating combat missions, and fast shooting mechanics across rooms, streets, and abandoned zones.",
+    techStack: "UNITY, C#",
+    open: "https://play.google.com/store/apps/details?id=com.hrsl.nomore.zombies.room",
+    platform: "Android",
+    image: "/assets/games/no-more-zombies.webp",
+  },
+  "Chaotic Gas Station Cars Prank": {
+    desc: "A sandbox driving game set in a busy gas station — drive and park different cars, pull off pranks, and clear quick driving challenges with simple controls.",
+    techStack: "UNITY, C#",
+    open: "https://play.google.com/store/apps/details?id=com.hrsl.chaotic.gas.station",
+    platform: "Android",
+    image: "/assets/games/gas-station.webp",
+  },
   "I Am Fun Monkey: Zoo Pranks 3D": {
     desc: "A 3D casual role-play game with interactive animal and human NPCs. Built the task-based gameplay loop and Firebase integration.",
     techStack: "UNITY, C#, FIREBASE",
@@ -41,20 +62,6 @@ const games = {
     open: "https://www.appbrain.com/appstore/catch-run-steal-braingot/ios-6749070784",
     platform: "Android / iOS",
     image: "/assets/games/parkour-runner.jpg",
-  },
-  "Car Repair: Mechanic Simulator": {
-    desc: "A repair sim with interactive sanding, painting, dent repair, and tire replacement mechanics built on Paint in 3D workflows.",
-    techStack: "UNITY, C#, FIREBASE",
-    open: "https://tinyurl.com/Mechanic-Simulator",
-    platform: "Android",
-    image: "/assets/games/car-repair.jpg",
-  },
-  "Deconstruction Simulator": {
-    desc: "A 3D simulation game focused on breaking objects into pieces, digging, picking up trash, and loading it into the truck to discard.",
-    techStack: "UNITY, C#, FIREBASE",
-    open: "https://apps.apple.com/ca/app/deconstruction-simulator-games/id1438383721",
-    platform: "iOS",
-    image: "/assets/games/deconstruction.webp",
   },
 };
 
