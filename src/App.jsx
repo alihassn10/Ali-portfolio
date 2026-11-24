@@ -1,31 +1,32 @@
-import React, { useState } from "react";
-import Intro from "./components/Intro";
-import Experience from "./components/Experience";
-import About from "./components/About";
-import Games from "./components/Games";
-import Projects from "./components/Projects";
-import Credits from "./components/Credits";
-import NavBar from "./components/NavBar";
-import SidebarNav from "./components/SidebarNav";
+import React, { useState, lazy, Suspense } from "react";
+import { AVATAR_ENABLED, USE_3D } from "./three/support";
+import TopBar from "./components/TopBar";
+import Hero, { HeroBackdrop } from "./components/Hero";
+import Resume from "./components/Resume";
+import Work from "./components/Work";
+import Contact from "./components/Contact";
 import RobotGame from "./components/RobotGame";
-import { Routes, Route, useLocation } from "react-router-dom";
-import { useEffect } from "react";
-import "./App.css";
-import "./styles/Global.css";
+import "./styles/site.css";
 import "./styles/RobotGame.css";
 
+// three.js is split into its own chunk so the page text paints first.
+const Scene = lazy(() => import("./three/Scene"));
+
 function App() {
-  const { pathname } = useLocation();
   const [gameActive, setGameActive] = useState(false);
   const [showGameInfo, setShowGameInfo] = useState(false);
 
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, [pathname]);
-
   return (
-    <div className="App">
-      <NavBar />
+    <div className={`App${USE_3D ? " App--3d" : ""}${AVATAR_ENABLED ? "" : " App--no-avatar"}`}>
+      {/* layer order: backdrop name → 3D avatar → page content */}
+      <HeroBackdrop />
+      {USE_3D && (
+        <Suspense fallback={null}>
+          <Scene />
+        </Suspense>
+      )}
+      <TopBar />
+
       <div className="game-toggle-fixed">
         <div className="game-toggle-row">
           <button
@@ -65,25 +66,14 @@ function App() {
           </div>
         )}
       </div>
-      <SidebarNav />
       <RobotGame active={gameActive} />
-      <div id="content">
-        <Routes>
-          <Route
-            path="/"
-            element={
-              <>
-                <Intro />
-                <About />
-                <Experience />
-                <Games />
-                <Projects />
-                <Credits />
-              </>
-            }
-          />
-        </Routes>
-      </div>
+
+      <main id="content">
+        <Hero />
+        <Resume />
+        <Work />
+        <Contact />
+      </main>
     </div>
   );
 }
