@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 
 const SECTIONS = [
-  { id: "intro", label: "Portfolio — 2026" },
+  { id: "intro", label: "Portfolio 2027" },
   { id: "about", label: "About · Résumé" },
   { id: "work", label: "Selected work" },
   { id: "contact", label: "Contact" },
@@ -50,7 +50,7 @@ const TopBar = () => {
     <header className="navbar topbar">
       <a className="brand" href="#intro">
         <span className="brand-name">Ali Hassan</span>
-        <span className="brand-role">Game developer</span>
+        <span className="brand-role">Gameplay programmer</span>
       </a>
       <nav className="topbar-nav" aria-label="Sections">
         <a href="#about">About</a>

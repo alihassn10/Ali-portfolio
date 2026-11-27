@@ -1,5 +1,5 @@
 import React from "react";
-import { links } from "../data/content";
+import { hero, links } from "../data/content";
 import { AVATAR_ENABLED, USE_3D } from "../three/support";
 
 // Giant name that sits *behind* the 3D canvas (rendered outside #content so it
@@ -17,14 +17,11 @@ const Hero = () => (
     )}
 
     <div className="hero-copy">
-      <p className="eyebrow">Game developer · Lahore</p>
+      <p className="eyebrow">{hero.eyebrow}</p>
       <h1 className="hero-title">
         hi, I'm <em>Ali</em>.
       </h1>
-      <p className="hero-desc">
-        I build and ship real-time 3D games for Android and iOS — profiling frame times, tuning
-        rendering pipelines, and chasing what makes a game worth coming back to.
-      </p>
+      <p className="hero-desc">{hero.desc}</p>
       <div className="hero-actions">
         <a className="btn btn--solid" href="#work">
           See my work
@@ -36,7 +33,7 @@ const Hero = () => (
     </div>
 
     <div className="hero-now">
-      <span className="dot" /> Now — Associate Game Developer @ Gamivision
+      <span className="dot" /> {hero.now}
     </div>
     <div className="hero-side">Based in Lahore, PK</div>
     <a className="hero-scroll" href="#about">

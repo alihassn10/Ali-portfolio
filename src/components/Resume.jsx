@@ -1,6 +1,6 @@
 import React from "react";
 import FadeInSection from "./FadeInSection";
-import { about, experience } from "../data/content";
+import { about, education, experience } from "../data/content";
 
 // About + résumé: glass panels in a column on the right while the avatar's
 // face holds the left half of the screen.
@@ -42,6 +42,21 @@ const Resume = () => (
           </article>
         </FadeInSection>
       ))}
+
+      <FadeInSection>
+        <article className="panel job">
+          <div className="job-head">
+            <span className="job-mark" aria-hidden="true">
+              UCP
+            </span>
+            <div>
+              <div className="job-period">{education.period}</div>
+              <h4 className="job-org">{education.degree}</h4>
+              <div className="job-role">{education.school}</div>
+            </div>
+          </div>
+        </article>
+      </FadeInSection>
 
       <FadeInSection>
         <article className="panel">

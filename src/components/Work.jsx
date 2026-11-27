@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import SportsEsportsRoundedIcon from "@mui/icons-material/SportsEsportsRounded";
 import { games, software, stats, links } from "../data/content";
 
@@ -18,11 +18,14 @@ const Chapter = ({ n, title, sub, meta, count }) => (
 
 const Arrow = () => <span aria-hidden="true">↗</span>;
 
-const GameCard = ({ g }) => (
+const GameCard = ({ g }) => {
+  // falls back to the placeholder if the image can't be loaded
+  const [broken, setBroken] = useState(false);
+  return (
   <article className="work-card">
     <div className="work-card-media">
-      {g.image ? (
-        <img src={g.image} alt="" loading="lazy" />
+      {g.image && !broken ? (
+        <img src={g.image} alt="" loading="lazy" onError={() => setBroken(true)} />
       ) : (
         <div className="media-placeholder">
           <SportsEsportsRoundedIcon sx={{ fontSize: 56 }} />
@@ -43,19 +46,24 @@ const GameCard = ({ g }) => (
           <li key={t}>{t}</li>
         ))}
       </ul>
-      <div className="work-card-foot">
-        <a href={g.href} target="_blank" rel="noopener noreferrer">
-          {g.cta} <Arrow />
-        </a>
-        {g.code && (
-          <a href={g.code} target="_blank" rel="noopener noreferrer">
-            Code <Arrow />
-          </a>
-        )}
-      </div>
+      {(g.href || g.code) && (
+        <div className="work-card-foot">
+          {g.href && (
+            <a href={g.href} target="_blank" rel="noopener noreferrer">
+              {g.cta} <Arrow />
+            </a>
+          )}
+          {g.code && (
+            <a href={g.code} target="_blank" rel="noopener noreferrer">
+              Code <Arrow />
+            </a>
+          )}
+        </div>
+      )}
     </div>
   </article>
-);
+  );
+};
 
 const SoftwareCard = ({ s }) => (
   <article className={`work-card${s.featured ? " work-card--featured" : ""}`}>
@@ -162,8 +170,7 @@ const Work = () => {
             <p className="eyebrow">Selected work</p>
             <h2 className="work-heading">Work</h2>
             <p className="work-lead">
-              Shipped mobile titles, solo builds and a few apps outside Unity. Every card links to
-              something you can play or read.
+              Shipped titles across every genre, solo builds, and a few apps outside Unity.
             </p>
             <dl className="stats">
               {stats.map((s) => (
